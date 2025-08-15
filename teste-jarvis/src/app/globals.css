@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Importar fonte personalizada */
+@font-face {
+  font-family: 'GoodTiming';
+  src: url('/good timing bd.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -20,7 +29,68 @@
 }
 
 body {
-  background: var(--background);
+  background: url('/background.jpg') no-repeat center center fixed;
+  background-size: cover;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Classe para a fonte personalizada */
+.font-good-timing {
+  font-family: 'GoodTiming', Arial, sans-serif;
+}
+
+/* Estilização do dropdown do select */
+select option {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  color: white !important;
+  font-family: 'GoodTiming', Arial, sans-serif !important;
+}
+
+select option:hover {
+  background-color: rgba(108, 145, 191, 0.6) !important;
+}
+
+select option:checked {
+  background-color: rgba(108, 145, 191, 0.8) !important;
+}
+
+/* Estilização adicional para garantir que funcione em todos os navegadores */
+select {
+  background-color: transparent;
+}
+
+select:focus option {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Estilização da barra de rolagem personalizada */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(108, 145, 191, 0.6) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin-right: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(108, 145, 191, 0.6);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 145, 191, 0.8);
+  background-clip: content-box;
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
 }

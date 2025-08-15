@@ -12,9 +12,43 @@ datasource db {
 
 model User {
   id            String   @id @default(cuid())
-  email         String   @unique
-  name          String?
+  email         String?  @unique
+  name          String
+  cpf           String   @unique
   passwordHash  String
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
+  
+  // Relacionamento com SystemLog
+  systemLogs    SystemLog[]
+}
+
+model Visitor {
+  id             String   @id @default(cuid())
+  name           String
+  cpf            String
+  salaDestino    String
+  dataNascimento DateTime?
+  email          String?
+  checkIn        DateTime @default(now())
+  checkOut       DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model SystemLog {
+  id          String   @id @default(cuid())
+  userId      String
+  userName    String
+  userCpf     String
+  action      String   // Tipo de ação (login, logout, create_visitor, checkout, delete_visitor, etc.)
+  details     String?  // Detalhes adicionais da ação
+  targetId    String?  // ID do visitante ou recurso afetado
+  targetName  String?  // Nome do visitante ou recurso afetado
+  ipAddress   String?  // Endereço IP do usuário
+  userAgent   String?  // User agent do navegador
+  createdAt   DateTime @default(now())
+  
+  // Relacionamento com User (opcional, para referência)
+  user        User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

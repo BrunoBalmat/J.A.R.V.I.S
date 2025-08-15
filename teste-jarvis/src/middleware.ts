@@ -9,7 +9,7 @@ export function middleware(request: NextRequest) {
 	const { pathname } = request.nextUrl;
 	const isAuthRoute = pathname.startsWith("/login") || pathname.startsWith("/register");
 
-	if (!isAuth && !isAuthRoute && pathname === "/protected") {
+			if (!isAuth && !isAuthRoute && pathname === "/controle") {
 		const url = request.nextUrl.clone();
 		url.pathname = "/login";
 		return NextResponse.redirect(url);
@@ -25,7 +25,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-	matcher: ["/protected", "/login", "/register"],
+	matcher: ["/controle", "/login", "/register"],
 };
 
 
