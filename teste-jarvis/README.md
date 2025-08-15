@@ -79,18 +79,14 @@ O **J.A.R.V.I.S** (Jarvis Assistant) é um sistema completo de controle de recep
    npx prisma db push
    ```
 
-4. **Adicione os arquivos necessários**
-   - Coloque o arquivo `good timing bd.otf` na pasta `public/`
-   - Coloque o arquivo `background.jpg` na pasta `public/`
-
-5. **Execute o projeto**
+4. **Execute o projeto**
    ```bash
    npm run dev
    # ou
    yarn dev
    ```
 
-6. **Acesse a aplicação**
+5. **Acesse a aplicação**
    - Abra [http://localhost:3000](http://localhost:3000) no navegador
 
 ## 📁 Estrutura do Projeto
